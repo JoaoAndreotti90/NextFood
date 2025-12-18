@@ -4,7 +4,7 @@ import { useCart } from "../context/cart"
 import { X, Minus, Plus, Trash, ShoppingBag } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 
 export default function CartSidebar() {
@@ -12,33 +12,42 @@ export default function CartSidebar() {
     const { products, removeFromCart, total, increaseQuantity, decreaseQuantity } = useCart()
     const pathname = usePathname()
 
+    useEffect(() => {
+        if (products.length > 0) {
+            setIsOpen(true)
+        }
+    }, [products.length])
+
     if (pathname.startsWith("/admin")) {
         return null
     }
 
     return (
         <>
-            {products.length > 0 && (
+            <div className={`fixed bottom-6 right-6 z-[60] transition-all duration-200 ${products.length > 0 && !isOpen ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'}`}>
                 <button 
                     onClick={() => setIsOpen(true)}
-                    className="fixed bottom-6 right-6 bg-orange-600 text-white p-4 rounded-full shadow-xl shadow-orange-600/30 z-40 flex items-center gap-2 hover:bg-orange-700 transition-all hover:scale-110 active:scale-95"
+                    className="bg-orange-600 text-white p-4 rounded-full shadow-xl shadow-orange-600/30 flex items-center gap-2 hover:bg-orange-700 hover:scale-105 active:scale-95 transition-all"
                 >
                     <ShoppingBag />
                     <span className="bg-white text-orange-600 h-6 w-6 flex items-center justify-center rounded-full text-xs font-bold">
                         {products.length}
                     </span>
                 </button>
-            )}
+            </div>
 
-            {isOpen && (
-                <div 
-                    className="fixed inset-0 bg-black/60 z-50 backdrop-blur-sm transition-opacity"
-                    onClick={() => setIsOpen(false)}
-                />
-            )}
+            <div 
+                className={`fixed inset-0 bg-black/50 z-[70] transition-opacity duration-200 ${
+                    isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+                }`}
+                onClick={() => setIsOpen(false)}
+            />
 
-            <div className={`fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 shadow-2xl transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-                
+            <div 
+                className={`fixed top-0 right-0 h-full w-full max-w-md bg-white z-[80] shadow-2xl transform transition-transform duration-200 ease-out will-change-transform ${
+                    isOpen ? 'translate-x-0' : 'translate-x-full'
+                }`}
+            >
                 <div className="flex flex-col h-full">
                     <div className="p-6 border-b flex justify-between items-center bg-gray-50/50">
                         <h2 className="font-extrabold text-xl flex items-center gap-2 text-gray-800">
@@ -83,15 +92,17 @@ export default function CartSidebar() {
                                             <div className="flex items-center gap-3 bg-gray-50 rounded-xl p-1 border border-gray-100">
                                                 <button 
                                                     onClick={() => decreaseQuantity(product.id)}
-                                                    className="p-1.5 bg-white text-gray-600 rounded-lg shadow-sm hover:text-orange-600 disabled:opacity-50"
+                                                    className="p-1.5 bg-white text-gray-600 rounded-lg shadow-sm hover:text-orange-600 disabled:opacity-50 active:bg-gray-100"
                                                     disabled={product.quantity === 1}
                                                 >
                                                     <Minus size={14} />
                                                 </button>
+                                                
                                                 <span className="font-bold text-sm w-4 text-center text-gray-800">{product.quantity}</span>
+                                                
                                                 <button 
                                                     onClick={() => increaseQuantity(product.id)}
-                                                    className="p-1.5 bg-orange-600 text-white rounded-lg shadow-sm hover:bg-orange-700"
+                                                    className="p-1.5 bg-orange-600 text-white rounded-lg shadow-sm hover:bg-orange-700 active:bg-orange-800"
                                                 >
                                                     <Plus size={14} />
                                                 </button>

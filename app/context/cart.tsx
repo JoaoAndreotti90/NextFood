@@ -17,7 +17,8 @@ interface Product {
 interface CartContextType {
     products: Product[]
     addToCart: (product: Product) => void
-    decreaseProduct: (productId: string) => void
+    decreaseQuantity: (productId: string) => void
+    increaseQuantity: (productId: string) => void
     removeFromCart: (productId: string) => void
     clearCart: () => void
     total: number
@@ -26,7 +27,8 @@ interface CartContextType {
 const CartContext = createContext<CartContextType>({
     products: [],
     addToCart: () => {},
-    decreaseProduct: () => {},
+    decreaseQuantity: () => {},
+    increaseQuantity: () => {},
     removeFromCart: () => {},
     clearCart: () => {},
     total: 0,
@@ -100,7 +102,15 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         })
     }
 
-    const decreaseProduct = (productId: string) => {
+    const increaseQuantity = (productId: string) => {
+        setProducts((prev) =>
+            prev.map((p) =>
+                p.id === productId ? { ...p, quantity: p.quantity + 1 } : p
+            )
+        )
+    }
+
+    const decreaseQuantity = (productId: string) => {
         setProducts((prev) => {
             return prev.map((p) => {
                 if (p.id === productId) {
@@ -128,7 +138,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
             value={{
                 products,
                 addToCart,
-                decreaseProduct,
+                decreaseQuantity, 
+                increaseQuantity, 
                 removeFromCart,
                 clearCart,
                 total,

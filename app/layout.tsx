@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import "./globals.css"
 import { AuthProvider } from "./providers/auth-provider" 
 import { Toaster } from "sonner"
+import { CartProvider } from "./context/cart"
+import CartSidebar from "./components/cart-sidebar"
 
 export const metadata: Metadata = {
   title: "NextFood", 
@@ -17,8 +19,12 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body>
         <AuthProvider>
-            {children}
-            <Toaster richColors position="top-center" closeButton />
+           <CartProvider>
+              {children}
+              <CartSidebar />
+              
+              <Toaster richColors position="top-center" closeButton />
+           </CartProvider>
         </AuthProvider>
       </body>
     </html>
