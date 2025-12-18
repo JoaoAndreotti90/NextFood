@@ -7,6 +7,7 @@ import { Loader2 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { toast } from "sonner"
+import BackButton from "@/components/back-button"
 
 export default function LoginPage() {
     const router = useRouter()
@@ -54,7 +55,11 @@ export default function LoginPage() {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50 p-6">
+        <div className="min-h-screen flex items-center justify-center bg-gray-50 p-6 relative">
+            <div className="absolute top-6 left-6">
+                <BackButton />
+            </div>
+
             <div className="bg-white p-10 rounded-[2.5rem] shadow-xl border border-gray-100 w-full max-w-md text-center">
                 <div className="mb-8">
                     <h1 className="text-3xl font-extrabold text-gray-900 mb-2">Bem-vindo</h1>
