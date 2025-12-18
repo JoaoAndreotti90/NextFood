@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍔 NextFood - Delivery App
 
-## Getting Started
+![Capa do Projeto](https://placehold.co/1200x500/orange/white?text=Coloque+o+Print+do+Seu+Site+Aqui)
 
-First, run the development server:
+> Uma plataforma completa de delivery com pagamentos reais, autenticação segura e acompanhamento de pedidos em tempo real.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<div align="center">
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  <a href="https://next-food-xi-livid.vercel.app/" target="_blank">
+    <img src="https://img.shields.io/badge/VER_DEMO_ONLINE-000?style=for-the-badge&logo=vercel&logoColor=white" alt="Ver Demo" />
+  </a>
+  
+  <a href="https://github.com/JoaoAndreotti90">
+    <img src="https://img.shields.io/badge/Feito_por-João_Andreotti-blue?style=for-the-badge" alt="Feito por João" />
+  </a>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+</div>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 💻 Sobre o Projeto
 
-To learn more about Next.js, take a look at the following resources:
+O **NextFood** é uma aplicação Full Stack moderna desenvolvida para simular um sistema real de delivery. O projeto foca na experiência do usuário e na integração de serviços complexos como pagamentos e login social.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 💡 Funcionalidades Principais
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* 🔄 **Tempo Real:** Atualização de status do pedido ao vivo.
+* 🔐 **Autenticação:** Login seguro (Google e Credenciais) com Better Auth.
+* 💳 **Pagamentos:** Integração real com Stripe (Checkout Transparente).
+* 🛒 **Carrinho Dinâmico:** Gerenciamento de compras fluido.
+* 📱 **Responsivo:** Interface otimizada para Mobile e Desktop.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠 Tech Stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+As seguintes ferramentas foram usadas na construção do projeto:
+
+* **Front-end:** Next.js (App Router), React, TypeScript, Tailwind CSS.
+* **Back-end:** Prisma ORM, Node.js (Server Actions).
+* **Banco de Dados:** PostgreSQL (Supabase).
+* **Deploy:** Vercel.
