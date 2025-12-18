@@ -7,7 +7,7 @@ import { Loader2 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { toast } from "sonner"
-import BackButton from "./components/back-button"
+import BackButton from "../../components/back-button"
 
 export default function LoginPage() {
     const router = useRouter()
