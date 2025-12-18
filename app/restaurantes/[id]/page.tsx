@@ -56,6 +56,9 @@ const RestaurantPage = async ({ params }: RestaurantPageProps) => {
           src={restaurant.imageUrl || "/default-restaurant.png"}
           alt={restaurant.name}
           fill
+          sizes="100vw"
+          quality={100}
+          priority
           className="object-cover opacity-80"
         />
         
