@@ -40,3 +40,22 @@ As seguintes ferramentas foram usadas na construção do projeto:
 * **Back-end:** Prisma ORM, Node.js (Server Actions).
 * **Banco de Dados:** PostgreSQL (Supabase).
 * **Deploy:** Vercel.
+
+## 🚀 Como rodar o projeto
+
+1. Clone o repositório:
+```bash
+git clone [https://github.com/JoaoAndreotti90/nextfood.git](https://github.com/JoaoAndreotti90/nextfood.git)
+Instale as dependências:
+
+Bash
+
+npm install
+Configure as variáveis de ambiente (.env) com suas chaves do Stripe, Supabase e Better Auth.
+
+Rode o servidor de desenvolvimento:
+
+Bash
+
+npm run dev
+<p align="center"> Feito com 💙 por João Andreotti </p>
