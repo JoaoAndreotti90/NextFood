@@ -1,8 +1,8 @@
 # 🍔 NextFood - Delivery App
 
+<img width="1610" height="942" alt="Screenshot 2025-12-18 190316" src="https://github.com/user-attachments/assets/6ea19264-e1ec-4c4f-86eb-f04a36f4daa9" />
 
-> Uma plataforma completa de delivery com pagamentos reais, autenticação segura e acomp<img width="1610" height="942" alt="Screenshot 2025-12-18 190316" src="https://github.com/user-attachments/assets/602b38c0-38df-4c56-9ea4-506e565e8fe9" />
-anhamento de pedidos em tempo real.
+> Uma plataforma completa de delivery com pagamentos reais, autenticação segura e acompanhamento de pedidos em tempo real.
 
 <div align="center">
 
