@@ -64,7 +64,9 @@ export default async function MyOrdersPage() {
                         <div key={order.id} className="bg-white rounded-[2rem] shadow-sm border border-gray-100 p-6 hover:shadow-md transition-all">
                             <div className="flex items-center gap-4 mb-5 pb-5 border-b border-gray-50">
                                 <div className="h-14 w-14 rounded-2xl relative overflow-hidden bg-gray-100 border border-gray-100">
-                                    <Image src={order.restaurant.imageUrl} alt={order.restaurant.name} fill className="object-cover" />
+                                    {order.restaurant.imageUrl && (
+                                        <Image src={order.restaurant.imageUrl} alt={order.restaurant.name} fill className="object-cover" />
+                                    )}
                                 </div>
                                 <div className="flex-1">
                                     <h3 className="font-bold text-gray-900 text-lg leading-tight">{order.restaurant.name}</h3>
